@@ -1,0 +1,61 @@
+Assignment Questions
+
+1. *Inventory management:* Design a program to manage the inventory of a grocery store. Use a dictionary to store the inventory items, with the item name as the key and the quantity as the value. Implement functions to add items to the inventory, remove items, and display the current inventory.
+
+def inventory():
+    dictt1 ={}
+
+    while True:
+        item_name = input("Enter the item name:")
+        if item_name.lower()=='exit':
+            break
+        item_value = int(input(f"Enter the value for {item_name}:"))
+
+        dictt1[item_name]=item_value
+
+    print(dictt1)
+
+    item_remove= input("Enter the removed item ")
+    if item_remove!='skip':
+        del dictt1[item_remove]
+        print(dictt1)
+
+inventory()
+
+
+
+2. *Email address validation:* Develop a function to validate the format of an email address. Use regular expressions to check if the email address follows the correct structure, including the presence of an @ symbol, a domain name, and a top-level domain (e.g., .com, .net, .org).
+
+import re
+
+def check(email):
+    regex = r'/b[a-zA-Z0-9._%+-]+@[a-z-Z0-9./_-]+[A-Z|a-z]{2,7}/b'
+    validation = input("email address")
+    if re.fullmatch(regex,email):
+        print("valid")
+    else:
+        print("not valid")
+
+email = input("Enter email:")
+check(email)
+
+
+
+3. *Password strength checker:* Create a program to assess the strength of a user-provided password. Use a combination of regular expressions and data structures to evaluate the password's length, complexity, and presence of special characters. Assign a strength rating (e.g., weak, medium, strong) based on the evaluation.
+
+
+import re 
+def passs(password):
+    regex =  r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+
+    if re.match(regex,password):
+        return True
+    else:
+        return False
+    
+password = input("Enter the pass:")
+if passs(password):
+    print("Its strong")
+else:
+    print("its weak")
+    
